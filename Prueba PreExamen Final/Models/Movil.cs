@@ -7,9 +7,16 @@ using System.Threading.Tasks;
 
 namespace Prueba_PreExamen_Final.Models
 {
-    class Movil
+    class Movil : Dispositivo
     {
         private SO so;
+
+        public Movil(string marca, string modelo, float pulgada) : base(marca, modelo, pulgada)
+        {
+
+        }
+
+        public Movil() { }
 
         public SO getSO()
         {

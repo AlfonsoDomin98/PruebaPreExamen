@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prueba_PreExamen_Final.Models
 {
-    class Portatil  : Dispositivo
+    class Portatil : Dispositivo
     {
 
         private string Procesador;
@@ -19,6 +19,10 @@ namespace Prueba_PreExamen_Final.Models
             this.Procesador = Procesador;
         }
 
+        public Portatil()
+        {
+        }
+
         // GETS AND SETTERS
         public string getProcesador()
         {
@@ -27,7 +31,7 @@ namespace Prueba_PreExamen_Final.Models
 
         public void setProcesador(string pros)
         {
-            if(pros == "")
+            if (pros == "")
             {
                 throw new Exception("[ERROR]: NO HA INTRODUCIDO UN PROCESADOR CORRECTO");
             }
@@ -40,11 +44,21 @@ namespace Prueba_PreExamen_Final.Models
 
         public void setRam(RAM RAM)
         {
-            if(RAM == null)
+            if (RAM == null)
             {
                 throw new Exception("[ERROR]: NO HA INTRODUCIDO UNA RAM CORRECTA");
             }
         }
+        public SO getSO()
+        {
+            return so;
+        }
 
-       
-}
+        public void setSO(SO So)
+        {
+
+        }
+    }
+
+
+    }

@@ -75,9 +75,9 @@ namespace Prueba_PreExamen_Final.Models
             return pulgada;
         }
 
-        public void setPulgada(string Pulgada)
+        public void setPulgada(float Pulgada)
         {
-            if (Pulgada == "")
+            if (Pulgada <= 0)
             {
                 throw new Exception("[ERROR]: NO HA INTRODUCIDO UNA PULGADA VALIDA");
             }

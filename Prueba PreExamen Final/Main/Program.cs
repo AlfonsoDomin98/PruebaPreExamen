@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace Prueba_PreExamen_Final
 {
-    class Program : ArrayList
+    class Program 
     {
-        public static Dispositivo elemento  = new Dispositivo();
-        public static ArrayList<Dispositivo> Lista  = new ArrayList<Dispositivo>();
+        
         static void Main(string[] args)
         {
            
@@ -112,7 +111,8 @@ namespace Prueba_PreExamen_Final
                 }
             }
             while (!esCorrecto);
-           
+
+            ElecDispositivo(accion);
         }
 
         public static void ElecDispositivo(int accion)
@@ -129,7 +129,7 @@ namespace Prueba_PreExamen_Final
                     AniadirTablet();
                     break;
                 case 4:
-
+                    AniadirPortatil();
                     break;
             }
         }
@@ -137,18 +137,29 @@ namespace Prueba_PreExamen_Final
         public static void AniadirPC()
         {
             PC PC = new PC();
-            string aux = "";
+            string marca, modelo, procesador, piezas, fuente, aux, SO;
             int Gb = 0;
 
+            Console.WriteLine("Marca: ");
+            marca = Console.ReadLine();
+            PC.setMarca(marca);
+
+            Console.WriteLine("Modelo: ");
+            modelo = Console.ReadLine();
+            PC.setModelo(modelo);
+
             Console.WriteLine("Procesador: ");
-            aux = Console.ReadLine();
-            PC.setProcesador(aux);
+            procesador = Console.ReadLine();
+            PC.setProcesador(procesador);
+
             Console.WriteLine("Piezas: ");
-            aux = Console.ReadLine();
-            PC.setPiezas(aux);
+            piezas = Console.ReadLine();
+            PC.setPiezas(piezas);
+
             Console.WriteLine("Fuente Alimentacion: ");
-            aux = Console.ReadLine();
-            PC.setFuenteAliment(aux);
+            fuente = Console.ReadLine();
+            PC.setFuenteAliment(fuente);
+
             Console.WriteLine("RAM: - GB");
             aux = Console.ReadLine();
             Int32.TryParse(aux, out Gb);
@@ -177,36 +188,117 @@ namespace Prueba_PreExamen_Final
                 PC.setRam(Enum.RAM.GB32);
             }
             Console.WriteLine("SO: ");
-            aux = Console.ReadLine();
-            if(aux == "window")
+            SO = Console.ReadLine();
+            if(SO == "window")
             {
                 PC.setSO(Enum.SO.Window);
             }
-            else if (aux == "ios")
+            else if (SO == "ios")
             {
                 PC.setSO(Enum.SO.IOS);
             }
-            else if (aux == "android")
+            else if (SO == "android")
             {
                 PC.setSO(Enum.SO.Android);
             }
         }
-        
+
+        public static void AniadirPortatil()
+        {
+            Portatil PC = new Portatil();
+            string marca, modelo, procesador, piezas, fuente, aux, SO;
+            float pulgadas;
+            int Gb = 0;
+
+            Console.WriteLine("Marca: ");
+            marca = Console.ReadLine();
+            PC.setMarca(marca);
+
+            Console.WriteLine("Modelo: ");
+            modelo = Console.ReadLine();
+            PC.setModelo(modelo);
+
+            Console.WriteLine("Procesador: ");
+            procesador = Console.ReadLine();
+            PC.setProcesador(procesador);
+
+            Console.WriteLine("Pulgadas: ");
+            aux = Console.ReadLine();
+            Single.TryParse(aux, out pulgadas);
+            PC.setPulgada(pulgadas);
+
+            Console.WriteLine("RAM: - GB");
+            aux = Console.ReadLine();
+            Int32.TryParse(aux, out Gb);
+            if (Gb == 1)
+            {
+                PC.setRam(Enum.RAM.GB1);
+            }
+            else if (Gb == 2)
+            {
+                PC.setRam(Enum.RAM.GB2);
+            }
+            else if (Gb == 4)
+            {
+                PC.setRam(Enum.RAM.GB4);
+            }
+            else if (Gb == 8)
+            {
+                PC.setRam(Enum.RAM.GB8);
+            }
+            else if (Gb == 16)
+            {
+                PC.setRam(Enum.RAM.GB16);
+            }
+            else if (Gb == 32)
+            {
+                PC.setRam(Enum.RAM.GB32);
+            }
+            Console.WriteLine("SO: ");
+            SO = Console.ReadLine();
+            if (SO == "window")
+            {
+                PC.setSO(Enum.SO.Window);
+            }
+            else if (SO == "ios")
+            {
+                PC.setSO(Enum.SO.IOS);
+            }
+            else if (SO == "android")
+            {
+                PC.setSO(Enum.SO.Android);
+            }
+        }
+
         public static void AniadirMovil()
         {
             Movil movil = new Movil();
-            string aux = "";
-            Console.WriteLine("SO: ");
+            string SO,marca, modelo, aux;
+            float pulgadas;
+            Console.WriteLine("Marca: ");
+            marca = Console.ReadLine();
+            movil.setMarca(marca);
+
+            Console.WriteLine("Modelo: ");
+            modelo = Console.ReadLine();
+            movil.setModelo(modelo);
+
+            Console.WriteLine("Pulgadas: ");
             aux = Console.ReadLine();
-            if (aux == "window")
+            Single.TryParse(aux, out pulgadas);
+            movil.setPulgada(pulgadas);
+
+            Console.WriteLine("SO: ");
+            SO = Console.ReadLine();
+            if (SO == "window")
             {
                 movil.setSO(Enum.SO.Window);
             }
-            else if (aux == "ios")
+            else if (SO == "ios")
             {
                 movil.setSO(Enum.SO.IOS);
             }
-            else if (aux == "android")
+            else if (SO == "android")
             {
                 movil.setSO(Enum.SO.Android);
             }
@@ -215,7 +307,22 @@ namespace Prueba_PreExamen_Final
         public static void AniadirTablet()
         {
             Tablet tablet = new Tablet();
-            string aux = "";
+            string aux, marca, modelo;
+            float pulgadas;
+
+            Console.WriteLine("Marca: ");
+            marca = Console.ReadLine();
+            tablet.setMarca(marca);
+
+            Console.WriteLine("Modelo: ");
+            modelo = Console.ReadLine();
+            tablet.setModelo(modelo);
+
+            Console.WriteLine("Pulgadas: ");
+            aux = Console.ReadLine();
+            Single.TryParse(aux, out pulgadas);
+            tablet.setPulgada(pulgadas);
+
             Console.WriteLine("SO: ");
             aux = Console.ReadLine();
             if (aux == "window")
