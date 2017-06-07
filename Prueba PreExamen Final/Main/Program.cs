@@ -11,10 +11,10 @@ namespace Prueba_PreExamen_Final
 {
     class Program 
     {
-        
+        static  ArrayList<Dispositivo> Lista = new ArrayList<Dispositivo>();
         static void Main(string[] args)
         {
-           
+
             
             Entrada();
             
@@ -83,14 +83,14 @@ namespace Prueba_PreExamen_Final
             bool esCorrecto = false;    // Control de Validacion de datos
             int accion = 0;
 
-            Console.WriteLine("Que Dispositivo desea aniadir: ");
-            Console.WriteLine("1 - Movil");
-            Console.WriteLine("2 - PC");
-            Console.WriteLine("3 - Tablet");
-            Console.WriteLine("4 - Portatil");
+            
             do
             {
-                Console.WriteLine("Introduzca numero de horas trabajadas: ");
+                Console.WriteLine("Que Dispositivo desea aniadir: ");
+                Console.WriteLine("1 - Movil");
+                Console.WriteLine("2 - PC");
+                Console.WriteLine("3 - Tablet");
+                Console.WriteLine("4 - Portatil");
                 entrada = Console.ReadLine();
                 // Validacion por Formato
                 esCorrecto = Int32.TryParse(entrada, out accion);
@@ -201,12 +201,14 @@ namespace Prueba_PreExamen_Final
             {
                 PC.setSO(Enum.SO.Android);
             }
+            Console.WriteLine("Disposivo: Portatil, Marca: {0}, Modelo: {1}, Procesador: {2}, RAM: {4}, SO: {5}", marca, modelo, procesador, aux, SO);
+            
         }
 
         public static void AniadirPortatil()
         {
             Portatil PC = new Portatil();
-            string marca, modelo, procesador, piezas, fuente, aux, SO;
+            string marca, modelo, procesador, aux, SO;
             float pulgadas;
             int Gb = 0;
 
@@ -268,6 +270,9 @@ namespace Prueba_PreExamen_Final
             {
                 PC.setSO(Enum.SO.Android);
             }
+
+            Console.WriteLine("Disposivo: Portatil, Marca: {0}, Modelo: {1}, Procesador: {2}, Pulgadas: {3}, RAM: {4}, SO: {5}", marca, modelo, procesador, pulgadas, aux, SO);
+            
         }
 
         public static void AniadirMovil()
@@ -302,6 +307,7 @@ namespace Prueba_PreExamen_Final
             {
                 movil.setSO(Enum.SO.Android);
             }
+            Console.WriteLine("Disposivo: Portatil, Marca: {0}, Modelo: {1}, Procesador: {2}, Pulgadas: {3}, SO: {5}", marca, modelo, pulgadas, aux, SO);
         }
 
         public static void AniadirTablet()
@@ -337,6 +343,7 @@ namespace Prueba_PreExamen_Final
             {
                 tablet.setSO(Enum.SO.Android);
             }
+            Console.WriteLine("Disposivo: Portatil, Marca: {0}, Modelo: {1}, Pulgadas: {3}, SO: {5}", marca, modelo, pulgadas, aux);
         }
         }   
 
