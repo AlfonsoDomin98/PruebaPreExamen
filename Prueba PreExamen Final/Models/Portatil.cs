@@ -46,9 +46,5 @@ namespace Prueba_PreExamen_Final.Models
             }
         }
 
-        public override void Precio()
-        {
-            throw new NotImplementedException();
-        }
-    }
+       
 }
